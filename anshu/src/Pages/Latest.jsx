@@ -4,10 +4,10 @@ import '../fontawesome-free-6.0.0-web/css/all.css'
 import { MainNewsContainerStyle } from '../Components/styles'
 import '../Components/common.css'
 import { FindMonth } from '../Redux/Action'
-export const Home = () => {
+export const Latest = () => {
     const [data,setData]  = useState([])
     const CallData = async()=>{
-        let promise = await fetch("https://newsapi.org/v2/top-headlines?country=in&apiKey=81cd23c204f349be81345237249f7737");
+        let promise = await fetch("https://newsapi.org/v2/everything?q=latest&apiKey=81cd23c204f349be81345237249f7737");
 
         let d = await promise.json();
         setData(d.articles)
@@ -18,16 +18,17 @@ export const Home = () => {
     let count=0;
   return (
     <MainNewsContainerStyle>
+        <div style={{margin:"20px 10px 10px",fontSize:"16px",fontWeight:"500",color:"#424242"}}><span style={{color:"#00b1cd"}}>Home</span> / Latest News</div>
         <div style={{display:"flex",alignItems:"center",marginBottom:"20px"}}>
-            <div className='headingLineDiv headingLineTop'>
+            <div className='headingLineDiv headingLineMainLatest'>
                 <div className='headingLine'></div>
                 <div className='headingLine'></div>
                 <div className='headingLine'></div>
             </div>
 
-            <div style={{fontSize:"20px",fontWeight:"bold",textAlign:"center",width:"24%"}}><span className='bracketHome'>[</span>TOP NEWS<span className='bracketHome'>]</span></div>
+            <div style={{fontSize:"20px",fontWeight:"bold",textAlign:"center",width:"50%"}}><span className='bracketHome'>[</span>LATEST NEWS<span className='bracketHome'>]</span></div>
 
-            <div className='headingLineDiv headingLineTop'>
+            <div className='headingLineDiv headingLineMainLatest'>
                 <div className='headingLine'></div>
                 <div className='headingLine'></div>
                 <div className='headingLine'></div>
@@ -91,7 +92,7 @@ export const Home = () => {
             if(count===1){
                 return(
                     <div className='MainNewsFirstDiv'>
-                            <div className='pointer MainNewsFirstH2'>TOP NEWS</div>
+                            <div className='pointer MainNewsFirstH2'>LATEST NEWS</div>
                             <h2 className='pointer MainNewsFirstDes'>{des}</h2>
                             <img className='pointer MainNewsFirstImg' src={el.urlToImage} alt="" />
                             <div className='MainNewsTimeFirstDiv'>
@@ -105,26 +106,26 @@ export const Home = () => {
                 )
             }
             else{
-                return(
-                    <MainNewsDiv className='MainNewsDiv'>
-                        <div>
-                            <MainNewsH2 className='pointer'>TOP NEWS</MainNewsH2>
-                            <MainNewsDes className='pointer'>{des}</MainNewsDes>
-                            <MainNewsTimeDiv>
-                                <MainNewsPubDate>Updated on {month} {date}, {year} {hour}:{min} {zone} IST</MainNewsPubDate>
-                                <div>
-                                    <i style={{padding:"10px 12px",fontSize:"22px",color:"#2f2f2f"}} class="fa-solid fa-share-nodes"></i>
-                                    <i style={{padding:"10px 0px 10px 13px",fontSize:"22px",color:"#2f2f2f"}} class="fa-regular fa-bookmark"></i>
-                                </div>
-                            </MainNewsTimeDiv>
-                        </div>
-                        <div>
-                            <MainNewsImg className='pointer' src={el.urlToImage} alt="" />
-                        </div>
-                    </MainNewsDiv>
-                )
+                    return(
+        
+                        <MainNewsDiv className='MainNewsDiv'>
+                            <div>
+                                <MainNewsH2 className='pointer'>LATEST NEWS</MainNewsH2>
+                                <MainNewsDes className='pointer'>{des}</MainNewsDes>
+                                <MainNewsTimeDiv>
+                                    <MainNewsPubDate>Updated on {month} {date}, {year} {hour}:{min} {zone} IST</MainNewsPubDate>
+                                    <div>
+                                        <i style={{padding:"10px 12px",fontSize:"22px",color:"#2f2f2f"}} class="fa-solid fa-share-nodes"></i>
+                                        <i style={{padding:"10px 0px 10px 13px",fontSize:"22px",color:"#2f2f2f"}} class="fa-regular fa-bookmark"></i>
+                                    </div>
+                                </MainNewsTimeDiv>
+                            </div>
+                            <div>
+                                <MainNewsImg className='pointer' src={el.urlToImage} alt="" />
+                            </div>
+                        </MainNewsDiv>
+                    )
             }
-            
                 }
             }
         })}

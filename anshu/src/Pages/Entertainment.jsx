@@ -4,10 +4,10 @@ import '../fontawesome-free-6.0.0-web/css/all.css'
 import { MainNewsContainerStyle } from '../Components/styles'
 import '../Components/common.css'
 import { FindMonth } from '../Redux/Action'
-export const Home = () => {
+export const Entertainment = () => {
     const [data,setData]  = useState([])
     const CallData = async()=>{
-        let promise = await fetch("https://newsapi.org/v2/top-headlines?country=in&apiKey=81cd23c204f349be81345237249f7737");
+        let promise = await fetch("https://newsapi.org/v2/everything?q=Entertainment&apiKey=10ebb6b783bd45c78d28d7fdb43628ad");
 
         let d = await promise.json();
         setData(d.articles)
@@ -18,16 +18,17 @@ export const Home = () => {
     let count=0;
   return (
     <MainNewsContainerStyle>
+        <div style={{margin:"20px 10px 10px",fontSize:"16px",fontWeight:"500",color:"#424242"}}><span style={{color:"#00b1cd"}}>Home</span> / Entertainment</div>
         <div style={{display:"flex",alignItems:"center",marginBottom:"20px"}}>
-            <div className='headingLineDiv headingLineTop'>
+            <div className='headingLineDiv headingLineMainLatest'>
                 <div className='headingLine'></div>
                 <div className='headingLine'></div>
                 <div className='headingLine'></div>
             </div>
 
-            <div style={{fontSize:"20px",fontWeight:"bold",textAlign:"center",width:"24%"}}><span className='bracketHome'>[</span>TOP NEWS<span className='bracketHome'>]</span></div>
+            <div style={{fontSize:"20px",fontWeight:"bold",textAlign:"center",width:"50%"}}><span className='bracketHome'>[</span>ENTERTAINMENT<span className='bracketHome'>]</span></div>
 
-            <div className='headingLineDiv headingLineTop'>
+            <div className='headingLineDiv headingLineMainLatest'>
                 <div className='headingLine'></div>
                 <div className='headingLine'></div>
                 <div className='headingLine'></div>
@@ -85,13 +86,13 @@ export const Home = () => {
                     des = el.description
                 }
             }
+            count++;
             month = +month
             month = FindMonth(month)
-            count++;
             if(count===1){
                 return(
                     <div className='MainNewsFirstDiv'>
-                            <div className='pointer MainNewsFirstH2'>TOP NEWS</div>
+                            <div className='pointer MainNewsFirstH2'>ENTERTAINMENT</div>
                             <h2 className='pointer MainNewsFirstDes'>{des}</h2>
                             <img className='pointer MainNewsFirstImg' src={el.urlToImage} alt="" />
                             <div className='MainNewsTimeFirstDiv'>
@@ -108,7 +109,7 @@ export const Home = () => {
                 return(
                     <MainNewsDiv className='MainNewsDiv'>
                         <div>
-                            <MainNewsH2 className='pointer'>TOP NEWS</MainNewsH2>
+                            <MainNewsH2 className='pointer'>ENTERTAINMENT</MainNewsH2>
                             <MainNewsDes className='pointer'>{des}</MainNewsDes>
                             <MainNewsTimeDiv>
                                 <MainNewsPubDate>Updated on {month} {date}, {year} {hour}:{min} {zone} IST</MainNewsPubDate>
@@ -125,8 +126,8 @@ export const Home = () => {
                 )
             }
             
-                }
-            }
+           }
+          }
         })}
     </MainNewsContainerStyle>
   )

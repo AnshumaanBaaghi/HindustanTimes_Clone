@@ -8,15 +8,15 @@ display: flex;
 `
 export const LeftSideNewsContainerStyle = styled.div`
 width:210px;
-border:solid;
+// border:solid;
 box-sizing: border-box;
-background-color: white;
+// background-color: white;
 `
 export const RightSideNewsContainerStyle = styled.div`
 width:300px;
-border:solid;
+// border:solid;
 box-sizing: border-box;
-background-color: white;
+// background-color: white;
 `
 // -------------------------------Main Start-------------------------------
 export const MainNewsContainerStyle = styled.div`
