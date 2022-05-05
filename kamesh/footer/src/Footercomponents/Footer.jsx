@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import '../Footercomponents/Footerstyle.css'
 
 
 
@@ -195,7 +196,7 @@ export const Footer = () => {
 export const Footer1 = () => {
 
    return (
-     <footer1>
+     <div>
        <div className="wrapdiv2">
        <div>
        <h4 className="h4">About Us</h4>
@@ -233,6 +234,6 @@ export const Footer1 = () => {
 
      </div>
 
-     </footer1>
+     </div>
    )
 }
