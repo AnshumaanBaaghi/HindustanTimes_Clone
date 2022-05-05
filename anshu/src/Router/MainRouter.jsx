@@ -19,9 +19,9 @@ export const MainRouter = () => {
   return (
     <>
     <BelowNavBar id='BelowNavBar'>
-      {/* <LeftSideNewsContainer/> */}
+      <LeftSideNewsContainer/>
     <Routes>
-        {/* <Route path='/' element={<Home/>}/> */}
+        <Route path='/' element={<Home/>}/>
         {/* <Route path='/' element={<Latest/>}/> */}
         {/* <Route path='/' element={<India/>}/> */}
         {/* <Route path='/' element={<World/>}/> */}
@@ -33,7 +33,7 @@ export const MainRouter = () => {
         {/* <Route path='/' element={<Editorial/>}/> */}
         {/* <Route path='/' element={<ForYou/>}/> */}
     </Routes>
-      {/* <RightSideNewsContainer/> */}
+      <RightSideNewsContainer/>
     </BelowNavBar>
     </>
   )
