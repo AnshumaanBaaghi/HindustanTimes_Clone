@@ -6,10 +6,10 @@ export const RightSideNewsContainer = () => {
   const [data,setData]  = useState([])
   const [data2,setData2]  = useState([])
     const CallData = async()=>{
-        let promise = await fetch("https://newsapi.org/v2/everything?q=trending&apiKey=81cd23c204f349be81345237249f7737");
+        let promise = await fetch("https://newsapi.org/v2/everything?q=trending&apiKey=10ebb6b783bd45c78d28d7fdb43628ad");
         let d = await promise.json();
         setData(d.articles)
-        let promise2 = await fetch("https://newsapi.org/v2/everything?q=viral&apiKey=81cd23c204f349be81345237249f7737");
+        let promise2 = await fetch("https://newsapi.org/v2/everything?q=viral&apiKey=10ebb6b783bd45c78d28d7fdb43628ad");
         let d2 = await promise2.json();
         setData2(d2.articles)
     }

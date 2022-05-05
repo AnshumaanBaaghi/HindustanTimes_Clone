@@ -6,10 +6,10 @@ export const LeftSideNewsContainer = () => {
   const [data,setData]  = useState([])
   const [data2,setData2]  = useState([])
     const CallData = async()=>{
-        let promise = await fetch("https://newsapi.org/v2/top-headlines?country=in&page=2&apiKey=81cd23c204f349be81345237249f7737");
+        let promise = await fetch("https://newsapi.org/v2/top-headlines?country=in&page=2&apiKey=10ebb6b783bd45c78d28d7fdb43628ad");
         let d = await promise.json();
         setData(d.articles)
-        let promise2 = await fetch("https://newsapi.org/v2/everything?q=bollywood&apiKey=81cd23c204f349be81345237249f7737");
+        let promise2 = await fetch("https://newsapi.org/v2/everything?q=bollywood&apiKey=10ebb6b783bd45c78d28d7fdb43628ad");
         let d2 = await promise2.json();
         // console.log('d2:', d2.articles)
         setData2(d2.articles)

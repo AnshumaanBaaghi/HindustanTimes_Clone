@@ -7,7 +7,7 @@ import { FindMonth } from '../Redux/Action'
 export const Home = () => {
     const [data,setData]  = useState([])
     const CallData = async()=>{
-        let promise = await fetch("https://newsapi.org/v2/top-headlines?country=in&apiKey=81cd23c204f349be81345237249f7737");
+        let promise = await fetch("https://newsapi.org/v2/top-headlines?country=in&apiKey=10ebb6b783bd45c78d28d7fdb43628ad");
 
         let d = await promise.json();
         setData(d.articles)
