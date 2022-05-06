@@ -4,47 +4,38 @@ import '../fontawesome-free-6.0.0-web/css/all.css'
 import { MainNewsContainerStyle } from '../Components/styles'
 import '../Components/common.css'
 import { FindMonth } from '../Redux/Action'
-import { nanoid } from 'nanoid'
-import { OtherNewsComponents } from './OtherNewsComponents'
-import { FirstNewsComponent } from './FirstNewsComponent'
-export const ForYou = () => {
+export const SavedNews = () => {
     const [data,setData]  = useState([])
     const CallData = async()=>{
-        let promise = await fetch("https://newsapi.org/v2/everything?q=technology&apiKey=81cd23c204f349be81345237249f7737");
-
+        let promise = await fetch("http://localhost:8080/SavedData");
         let d = await promise.json();
-        setData(d.articles)
+        setData(d)
     }
     useEffect(()=>{
         CallData()
     },[])
-    let count=0;
-    const handleSaved=async(el)=>{
-        let promise = await fetch("http://localhost:8080/SavedData",{
-            method:"POST",
-            headers:{"content-type":"application/json"},
-            body: JSON.stringify({
-                id:nanoid(),
-                Heading:"TOP NEWS",
-                description:el.description,
-                title:el.title,
-                urlToImage:el.urlToImage,
-                publishedAt:el.publishedAt,
-            })
+    const handleRemove=async(id)=>{
+        let promise2 = await fetch(`http://localhost:8080/SavedData/${id}`,{
+            method:"DELETE",
         })
+        let promise = await fetch("http://localhost:8080/SavedData");
+        let d = await promise.json();
+        setData([...d])
     }
+    
+    let count=0;
   return (
     <MainNewsContainerStyle>
         <div style={{display:"flex",alignItems:"center",marginBottom:"20px"}}>
-            <div className='headingLineDiv' style={{width:"85%"}}>
+            <div className='headingLineDiv headingLineTop'>
                 <div className='headingLine'></div>
                 <div className='headingLine'></div>
                 <div className='headingLine'></div>
             </div>
 
-            <div style={{fontSize:"20px",fontWeight:"bold",textAlign:"center",width:"50%"}}><span className='bracketHome'>[</span>FOR YOU<span className='bracketHome'>]</span></div>
+            <div style={{fontSize:"20px",fontWeight:"bold",textAlign:"center",width:"40%"}}><span className='bracketHome'>[</span>SAVED NEWS<span className='bracketHome'>]</span></div>
 
-            <div className='headingLineDiv' style={{width:"85%"}}>
+            <div className='headingLineDiv headingLineTop'>
                 <div className='headingLine'></div>
                 <div className='headingLine'></div>
                 <div className='headingLine'></div>
@@ -112,22 +103,30 @@ export const ForYou = () => {
                 title+=el.title[i]
             }
         }
-            count++;
             month = +month
             month = FindMonth(month)
-            if(count===1){
+            count++;
                 return(
-                    <FirstNewsComponent el={el} title={title} month={month} date={date} year={year} hour={hour} min={min} zone={zone} heading={""} id={600+i}/>
+                    <MainNewsDiv className='MainNewsDiv'>
+                        <div>
+                            <MainNewsH2 className='pointer'>{el.Heading}</MainNewsH2>
+                            <MainNewsDes className='pointer'>{title}</MainNewsDes>
+                            <MainNewsTimeDiv>
+                                <MainNewsPubDate>Updated on {month} {date}, {year} {hour}:{min} {zone} IST</MainNewsPubDate>
+                                <div>
+                                    <i style={{padding:"10px 12px",fontSize:"22px",color:"#2f2f2f"}} class="fa-solid fa-share-nodes"></i>
+                                    <i onClick={()=>handleRemove(el.id)} style={{padding:"10px 0px 10px 13px",fontSize:"22px",color:"#2f2f2f"}} class="fas fa-bookmark"></i>
+                                </div>
+                            </MainNewsTimeDiv>
+                        </div>
+                        <div>
+                            <MainNewsImg className='pointer' src={el.urlToImage} alt="" />
+                        </div>
+                    </MainNewsDiv>
                 )
-            }
-            else{
-                return(
-                    <OtherNewsComponents el={el} title={title} month={month} date={date} year={year} hour={hour} min={min} zone={zone} heading={""} id={600+i}/>
-                )
-            }
             
-           }
-          }
+                }
+            }
         })}
     </MainNewsContainerStyle>
   )

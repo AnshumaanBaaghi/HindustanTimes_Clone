@@ -49,6 +49,7 @@ font-weight: bold;
 margin-bottom: 10px;
 `
 export const MainNewsTimeDiv = styled.div`
+width:330px;
 display: flex;
 justify-content: space-between;
 margin-bottom: 10px;
@@ -59,6 +60,7 @@ font-weight: 500;
 font-size: 14px;
 width:180px;
 `
+
 // export const MainNewsShare = styled.div`
 // `
 export const MainNewsImg = styled.img`

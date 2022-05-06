@@ -4,10 +4,13 @@ import '../fontawesome-free-6.0.0-web/css/all.css'
 import { MainNewsContainerStyle } from '../Components/styles'
 import '../Components/common.css'
 import { FindMonth } from '../Redux/Action'
+import { nanoid } from 'nanoid'
+import { FirstNewsComponent } from './FirstNewsComponent'
+import { OtherNewsComponents } from './OtherNewsComponents'
 export const Astrology = () => {
     const [data,setData]  = useState([])
     const CallData = async()=>{
-        let promise = await fetch("https://newsapi.org/v2/everything?q=astrology&apiKey=10ebb6b783bd45c78d28d7fdb43628ad");
+        let promise = await fetch("https://newsapi.org/v2/everything?q=astrology&apiKey=81cd23c204f349be81345237249f7737");
 
         let d = await promise.json();
         setData(d.articles)
@@ -16,6 +19,7 @@ export const Astrology = () => {
         CallData()
     },[])
     let count=0;
+   
   return (
     <MainNewsContainerStyle>
         <div style={{margin:"20px 10px 10px",fontSize:"16px",fontWeight:"500",color:"#424242"}}><span style={{color:"#00b1cd"}}>Home</span> / Astrology</div>
@@ -86,43 +90,27 @@ export const Astrology = () => {
                     des = el.description
                 }
             }
+            let title = ""
+            let flag = true;
+        for(let i=0;i<el.title.length;i++){
+            if(el.title[i]==="-"){
+                flag = false
+            }
+            if(flag){
+                title+=el.title[i]
+            }
+        }
             count++;
             month = +month
             month = FindMonth(month)
             if(count===1){
                 return(
-                    <div className='MainNewsFirstDiv'>
-                            <div className='pointer MainNewsFirstH2'>ASTROLOGY</div>
-                            <h2 className='pointer MainNewsFirstDes'>{des}</h2>
-                            <img className='pointer MainNewsFirstImg' src={el.urlToImage} alt="" />
-                            <div className='MainNewsTimeFirstDiv'>
-                                <div className='MainNewsFirstPubDate'>Updated on {month} {date}, {year} {hour}:{min} {zone} IST</div>
-                                <div>
-                                    <i style={{padding:"10px 12px",fontSize:"22px",color:"#2f2f2f"}} class="fa-solid fa-share-nodes"></i>
-                                    <i style={{padding:"10px 0px 10px 13px",fontSize:"22px",color:"#2f2f2f"}} class="fa-regular fa-bookmark"></i>
-                                </div>
-                            </div>
-                    </div>
+                    <FirstNewsComponent el={el} title={title} month={month} date={date} year={year} hour={hour} min={min} zone={zone} heading={"ASTROLOGY"} id={200+i}/>
                 )
             }
             else{
                 return(
-                    <MainNewsDiv className='MainNewsDiv'>
-                        <div>
-                            <MainNewsH2 className='pointer'>ASTROLOGY</MainNewsH2>
-                            <MainNewsDes className='pointer'>{des}</MainNewsDes>
-                            <MainNewsTimeDiv>
-                                <MainNewsPubDate>Updated on {month} {date}, {year} {hour}:{min} {zone} IST</MainNewsPubDate>
-                                <div>
-                                    <i style={{padding:"10px 12px",fontSize:"22px",color:"#2f2f2f"}} class="fa-solid fa-share-nodes"></i>
-                                    <i style={{padding:"10px 0px 10px 13px",fontSize:"22px",color:"#2f2f2f"}} class="fa-regular fa-bookmark"></i>
-                                </div>
-                            </MainNewsTimeDiv>
-                        </div>
-                        <div>
-                            <MainNewsImg className='pointer' src={el.urlToImage} alt="" />
-                        </div>
-                    </MainNewsDiv>
+                    <OtherNewsComponents el={el} title={title} month={month} date={date} year={year} hour={hour} min={min} zone={zone} heading={"ASTROLOGY"} id={200+i}/>
                 )
             }
             

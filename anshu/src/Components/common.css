@@ -82,6 +82,37 @@
   font-weight: 500;
   font-size: 15px;
 }
+#Search {
+  margin: auto;
+  position: relative;
+  /* border: solid; */
+  width: 80%;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  /* height: 50px; */
+}
+#Search > input {
+  width: 100%;
+  height: 30px;
+  padding: 0px 25px 0px 10px;
+  color: #999999;
+  border: #999999 solid 1px;
+  outline: none;
+  border-radius: 5px;
+}
+#Search > input:focus {
+  border: solid 1px #00b1cd;
+}
+#Search > input:focus ~ #searchIcon {
+  color: #00b1cd;
+}
+#searchIcon {
+  color: #999999;
+  right: 10px;
+  top: 8px;
+  position: absolute;
+}
 /* ---------------------Left Start--------------------------------- */
 .headingLineLatest {
   width: 20%;

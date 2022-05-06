@@ -93,13 +93,23 @@ export const LeftSideNewsContainer = () => {
                 else{
                     des = el.description
                 }
+                let title = ""
+            let flag = true;
+        for(let i=0;i<el.title.length;i++){
+            if(el.title[i]==="-"){
+                flag = false
+            }
+            if(flag){
+                title+=el.title[i]
+            }
+        }
                 count++;
                 month = +month
                 month = FindMonth(month)
                     return(
                         <div className='LeftNewsDiv'>
                         <div>
-                            <div className="LeftNewsDes pointer">{des}</div>
+                            <div className="LeftNewsDes pointer">{title}</div>
                             <MainNewsTimeDiv>
                                 <MainNewsPubDate>Updated on {month} {date}, {year} {hour}:{min} {zone} IST</MainNewsPubDate>
                             </MainNewsTimeDiv>
@@ -183,6 +193,16 @@ export const LeftSideNewsContainer = () => {
                 else{
                     des = el.description
                 }
+                let title = ""
+            let flag = true;
+        for(let i=0;i<el.title.length;i++){
+            if(el.title[i]==="-"){
+                flag = false
+            }
+            if(flag){
+                title+=el.title[i]
+            }
+        }
                 count2++;
                 month = +month
                 month = FindMonth(month)
@@ -191,7 +211,7 @@ export const LeftSideNewsContainer = () => {
                         <div className='LeftNewsDiv'>
                         <MainNewsH2 className='pointer' style={{fontSize:"16px",fontWeight:"bolder"}}>BOLLYWOOD</MainNewsH2>
                         <div>
-                            <div className="LeftNewsDes pointer">{des}</div>
+                            <div className="LeftNewsDes pointer">{title}</div>
                             <MainNewsTimeDiv>
                                 <MainNewsPubDate>Updated on {month} {date}, {year} {hour}:{min} {zone} IST</MainNewsPubDate>
                             </MainNewsTimeDiv>

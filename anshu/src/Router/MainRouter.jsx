@@ -15,13 +15,15 @@ import { Latest } from '../Pages/Latest'
 import { India } from '../Pages/India'
 import { World } from '../Pages/World'
 import { Cities } from '../Pages/Cities'
+import { Search } from '../Pages/Search'
+import { SavedNews } from '../Pages/SavedNews'
 export const MainRouter = () => {
   return (
     <>
     <BelowNavBar id='BelowNavBar'>
-      <LeftSideNewsContainer/>
+      {/* <LeftSideNewsContainer/> */}
     <Routes>
-        <Route path='/' element={<Home/>}/>
+        {/* <Route path='/' element={<Home/>}/> */}
         {/* <Route path='/' element={<Latest/>}/> */}
         {/* <Route path='/' element={<India/>}/> */}
         {/* <Route path='/' element={<World/>}/> */}
@@ -32,8 +34,10 @@ export const MainRouter = () => {
         {/* <Route path='/' element={<Astrology/>}/> */}
         {/* <Route path='/' element={<Editorial/>}/> */}
         {/* <Route path='/' element={<ForYou/>}/> */}
+        {/* <Route path='/' element={<Search/>}/> */}
+        <Route path='/' element={<SavedNews/>}/>
     </Routes>
-      <RightSideNewsContainer/>
+      {/* <RightSideNewsContainer/> */}
     </BelowNavBar>
     </>
   )

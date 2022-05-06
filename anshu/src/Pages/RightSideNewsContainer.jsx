@@ -58,12 +58,22 @@ export const RightSideNewsContainer = () => {
               else{
                   des = el.description
               }
+              let title = ""
+            let flag = true;
+        for(let i=0;i<el.title.length;i++){
+            if(el.title[i]==="-"){
+                flag = false
+            }
+            if(flag){
+                title+=el.title[i]
+            }
+        }
               count++;
                   return(
                       
                     <div className='RightNewsDiv'>
                       <div>
-                          <div className="LeftNewsDes pointer">{des}</div>
+                          <div className="LeftNewsDes pointer">{title}</div>
                       </div>
                       <img src={el.urlToImage} alt="" />
                   </div>
@@ -111,12 +121,22 @@ export const RightSideNewsContainer = () => {
                 else{
                     des = el.description
                 }
+                let title = ""
+            let flag = true;
+        for(let i=0;i<el.title.length;i++){
+            if(el.title[i]==="-"){
+                flag = false
+            }
+            if(flag){
+                title+=el.title[i]
+            }
+        }
                 count2++;
                     return(
                         
                       <div className='RightNewsDiv'>
                         <div>
-                            <div className="LeftNewsDes pointer">{des}</div>
+                            <div className="LeftNewsDes pointer">{title}</div>
                         </div>
                         <img src={el.urlToImage} alt="" />
                     </div>
