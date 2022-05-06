@@ -1,0 +1,52 @@
+#Profile-page-header{
+width: 100%;
+height: 55px;
+border: 1px solid rgba(211, 211, 211, 0.103);
+margin: auto;
+display: flex;
+justify-content: center;
+background-color: white;
+box-sizing: border-box;
+}
+#Profile-page-header-img{
+width: 283px;
+height: 36px;
+}
+#Profile-page-header-2{
+    width: 100%;
+    height: 600px;
+    /* box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px; */
+    background-color: #eeeeee;
+    box-sizing: border-box;
+}
+h1{
+    text-align: center;
+    padding-top: 70px;
+}
+#profile-content{
+    background-color: white;
+    width: 600px;
+    height: 450px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+}
+.edit-sec{
+    border: 1px solid lightgray;
+    width: 450px;
+    height: 70px;
+    margin: auto;
+    border-radius: 5px;
+   display: flex;
+   justify-content: end;
+}
+i{
+    color: gray;
+    margin-top: 25px;
+    margin-right: 22px;
+    font-size: 20px;
+    
+}
+#go{
+   margin-left: 350px;
+}

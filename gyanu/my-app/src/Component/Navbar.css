@@ -5,7 +5,7 @@
 
 #header-1{
     height: 120px;
-    width: 100%;
+    width: 100vw;
     background-color: #011e29;
 }
 #header-2{
@@ -65,7 +65,7 @@
     color: white;
 }
 #list-item{
-    width: 100%;
+    width: 99.5vw;
     height: 40px;
     border: 1px solid grey;
 }
