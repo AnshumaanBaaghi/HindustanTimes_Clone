@@ -4,8 +4,8 @@ import {Otp} from "./Otp"
 function App(){
   return(
     <>
-      {/* <Login/> */}
-      <Otp/>
+      <Login/>
+      {/* <Otp/> */}
     </>
   )
 }
