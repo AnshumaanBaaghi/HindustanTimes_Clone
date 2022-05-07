@@ -11,7 +11,6 @@ export const Home = () => {
     const [data,setData]  = useState([])
     const CallData = async()=>{
         let promise = await fetch("https://newsapi.org/v2/top-headlines?country=in&apiKey=81cd23c204f349be81345237249f7737");
-        console.log(1);
         let d = await promise.json();
         setData(d.articles)
     }

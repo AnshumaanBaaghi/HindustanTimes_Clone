@@ -26,11 +26,26 @@ export const OtherNewsComponents = ({el,title,month,date,year,hour,min,zone,head
         })
         setSaved(false)
     }
+    const handleSingleNews=()=>{
+        let obj={
+            el:el,
+            title:title,
+            month:month,
+            date:date,
+            year:year,
+            hour:hour,
+            min:min,
+            zone:zone,
+            heading:heading,
+            id:id
+        }
+        localStorage.setItem("SingleNews",JSON.stringify(obj))
+    }
   return (
     <MainNewsDiv className='MainNewsDiv'>
                         <div>
                             <MainNewsH2 className='pointer'>{heading}</MainNewsH2>
-                            <MainNewsDes className='pointer'>{title}</MainNewsDes>
+                            <MainNewsDes onClick={handleSingleNews} className='pointer'>{title}</MainNewsDes>
                             <MainNewsTimeDiv>
                                 <MainNewsPubDate>Updated on {month} {date}, {year} {hour}:{min} {zone} IST</MainNewsPubDate>
                                 <div>
@@ -40,7 +55,7 @@ export const OtherNewsComponents = ({el,title,month,date,year,hour,min,zone,head
                             </MainNewsTimeDiv>
                         </div>
                         <div>
-                            <MainNewsImg className='pointer' src={el.urlToImage} alt="" />
+                            <MainNewsImg onClick={handleSingleNews} className='pointer' src={el.urlToImage} alt="" />
                         </div>
                     </MainNewsDiv>
   )

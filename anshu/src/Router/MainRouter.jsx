@@ -17,6 +17,7 @@ import { World } from '../Pages/World'
 import { Cities } from '../Pages/Cities'
 import { Search } from '../Pages/Search'
 import { SavedNews } from '../Pages/SavedNews'
+import { SingleNews } from '../Pages/SingleNews'
 export const MainRouter = () => {
   return (
     <>
@@ -35,7 +36,8 @@ export const MainRouter = () => {
         {/* <Route path='/' element={<Editorial/>}/> */}
         {/* <Route path='/' element={<ForYou/>}/> */}
         {/* <Route path='/' element={<Search/>}/> */}
-        <Route path='/' element={<SavedNews/>}/>
+        {/* <Route path='/' element={<SavedNews/>}/> */}
+        <Route path='/' element={<SingleNews/>}/>
     </Routes>
       {/* <RightSideNewsContainer/> */}
     </BelowNavBar>
