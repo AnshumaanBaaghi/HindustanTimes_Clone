@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes,Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import { BelowNavBar } from '../Component/styles'
 import '../Component/common.css'
 import { Sports } from '../Pages/Sports'
@@ -18,14 +18,16 @@ import { Cities } from '../Pages/Cities'
 import { Search } from '../Pages/Search'
 import { SavedNews } from '../Pages/SavedNews'
 import { SingleNews } from '../Pages/SingleNews'
+import EditProfile from '../Component/EditProfile'
+import { Login } from '../Component/Login'
 export const MainRouter = () => {
   return (
     <>
-    <BelowNavBar id='BelowNavBar'>
-      <LeftSideNewsContainer/>
-    <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/Latest' element={<Latest/>}/>
+      <BelowNavBar id='BelowNavBar'>
+        {/* <LeftSideNewsContainer /> */}
+        <Routes>
+          {/* <Route path='/' element={<Home />} /> */}
+          {/*<Route path='/Latest' element={<Latest/>}/>
         <Route path='/India' element={<India/>}/>
         <Route path='/World' element={<World/>}/>
         <Route path='/Cities' element={<Cities/>}/>
@@ -36,11 +38,12 @@ export const MainRouter = () => {
         <Route path='/Editorial' element={<Editorial/>}/>
         <Route path='/ForYou' element={<ForYou/>}/>
         <Route path='/Search' element={<Search/>}/>
-        <Route path='/Saved' element={<SavedNews/>}/>
-        <Route path='/SingleNews' element={<SingleNews/>}/>
-    </Routes>
-      <RightSideNewsContainer/>
-    </BelowNavBar>
+      <Route path='/SingleNews' element={<SingleNews/>}/> */}
+          {/* <Route path='/Login' element={<Login/>}/> */}
+          <Route path='/' element={<SavedNews />} />
+        </Routes>
+        {/* <RightSideNewsContainer /> */}
+      </BelowNavBar>
     </>
   )
 }

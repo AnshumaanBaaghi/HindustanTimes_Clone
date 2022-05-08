@@ -1,5 +1,3 @@
-* {
-}
 #free-trial,
 #free-trial button,
 #free-trial p {
@@ -8,7 +6,7 @@
 }
 #header-1 {
   height: 120px;
-  width: 100%;
+  width: 99.95%;
   background-color: #011e29;
 }
 #header-2 {
@@ -71,9 +69,9 @@
   color: white;
 }
 #list-item {
-  width: 100%;
+  width: 99.8%;
   height: 40px;
-  border: 1px solid grey;
+  border-bottom: 1px solid grey;
 }
 #list-item-2 {
   width: 80%;
