@@ -7,7 +7,7 @@ export const LeftSideBarComponent = ({ Name, Options }) => {
             {flag ? <div className='SideBarOptionsOpen' onClick={() => setFlag(!flag)}>
                 <div>
                     <div>{Name}</div>
-                    <div><i class="fas fa-angle-down"></i></div>
+                    <div><i class="fas fa-angle-up"></i></div>
                 </div>
                 {Options.map((el) => {
                     return (
@@ -16,7 +16,7 @@ export const LeftSideBarComponent = ({ Name, Options }) => {
                 })}
             </div> : <div className='SideBarOptionsClose' onClick={() => setFlag(!flag)}>
                 <div>{Name}</div>
-                <div><i class="fas fa-angle-up"></i></div>
+                <div><i class="fas fa-angle-down"></i></div>
             </div>}
         </>
     )

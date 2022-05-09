@@ -20,27 +20,30 @@ import { SavedNews } from '../Pages/SavedNews'
 import { SingleNews } from '../Pages/SingleNews'
 import EditProfile from '../Component/EditProfile'
 import { Login } from '../Component/Login'
+import { History } from '../Pages/Histoty'
 export const MainRouter = () => {
   return (
     <>
       <BelowNavBar id='BelowNavBar'>
         {/* <LeftSideNewsContainer /> */}
         <Routes>
-          {/* <Route path='/' element={<Home />} /> */}
-          {/*<Route path='/Latest' element={<Latest/>}/>
-        <Route path='/India' element={<India/>}/>
-        <Route path='/World' element={<World/>}/>
-        <Route path='/Cities' element={<Cities/>}/>
-        <Route path='/Entertainment' element={<Entertainment/>}/>
-        <Route path='/Cricket' element={<Sports/>}/>
-        <Route path='/LifeStyle' element={<LifeStyle/>}/>
-        <Route path='/Astrology' element={<Astrology/>}/>
-        <Route path='/Editorial' element={<Editorial/>}/>
-        <Route path='/ForYou' element={<ForYou/>}/>
-        <Route path='/Search' element={<Search/>}/>
-      <Route path='/SingleNews' element={<SingleNews/>}/> */}
+          <Route path='/' element={<Home />} />
+          <Route path='/History' element={<History />} />
+          <Route path='/Latest' element={<Latest />} />
+          <Route path='/India' element={<India />} />
+          <Route path='/World' element={<World />} />
+          <Route path='/Cities' element={<Cities />} />
+          <Route path='/Entertainment' element={<Entertainment />} />
+          <Route path='/Cricket' element={<Sports />} />
+          <Route path='/LifeStyle' element={<LifeStyle />} />
+          <Route path='/Astrology' element={<Astrology />} />
+          <Route path='/Editorial' element={<Editorial />} />
+          <Route path='/ForYou' element={<ForYou />} />
+          <Route path='/Search' element={<Search />} />
+          <Route path='/SingleNews' element={<SingleNews />} />
           {/* <Route path='/Login' element={<Login/>}/> */}
-          <Route path='/' element={<SavedNews />} />
+          <Route path='/Saved' element={<SavedNews />} />
+
         </Routes>
         {/* <RightSideNewsContainer /> */}
       </BelowNavBar>

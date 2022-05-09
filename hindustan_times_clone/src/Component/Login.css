@@ -48,7 +48,7 @@
   color: #757575;
 }
 .div2 > div {
-  width: 450px;
+  /* width: 450px; */
   /* border: 1px solid purple; */
   margin: auto;
 
@@ -67,6 +67,14 @@
   height: 50px;
   border-radius: 3px;
   border-color: #999696;
+  outline: none;
+  border: solid black;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+input::-webkit-inner-spin-button,
+input::-webkit-outter-spin-button {
+  -webkit-appearance: none;
 }
 .button {
   margin: 20px 20px 0px 0px;
@@ -78,8 +86,11 @@
   font: 16px sans-serif;
   color: white;
 }
-.button:hover {
+.goAhead {
   background-color: rgb(74, 249, 74);
+}
+.wait:hover {
+  cursor: not-allowed;
 }
 .allLogo {
   width: 20px;

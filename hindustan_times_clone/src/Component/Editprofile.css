@@ -38,12 +38,20 @@
   margin: auto;
   border-radius: 5px;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0px 10px;
+  align-items: center;
+  font-weight: 500;
+}
+#profile-content .edit-sec i {
+  margin: 0;
+  margin-right: 22px;
 }
 #Profile-page-header-2 i {
   color: gray;
-  margin-top: 25px;
   margin-right: 22px;
+  margin-top: 25px;
   font-size: 20px;
 }
 #go {

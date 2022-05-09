@@ -50,7 +50,10 @@ body {
   font-size: 14px;
   font-family: "Lato", sans-serif;
 }
-#maindiv > button {
+.input > input {
+  text-align: center;
+}
+#OtpButtonCont {
   margin: 20px 20px 0px 0px;
   padding: 16px 50px;
   border-radius: 24px;

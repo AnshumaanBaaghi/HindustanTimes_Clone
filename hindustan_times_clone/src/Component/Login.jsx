@@ -1,7 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 const Login = () => {
+    const [mobile, setMobile] = useState("")
+    const navigate = useNavigate()
+    const [check, setCheck] = useState(false)
+    const handleChange = (e) => {
+        if (mobile.length === 9) {
+            setCheck(true)
+        }
+        else {
+            setCheck(false)
+        }
+        setMobile(e.target.value)
+    }
+    const handleSubmit = () => {
+        if (mobile.length === 10) {
+            if (mobile[0] === "9" || mobile[0] === "8" || mobile[0] === "6" || mobile[0] === "7") {
+                localStorage.setItem("HindustanTimesCurrentUser", JSON.stringify(mobile))
+                navigate('/Otp')
+            }
+        }
+
+    }
     return (
         <>
             <div className="logo1">
@@ -19,10 +41,10 @@ const Login = () => {
                         <div className="div4"><div></div><span>OR</span><div></div></div>
                         <div>
                             <div className="number">Email or Mobile Number<span>*</span></div>
-                            <input className="input_div" type={Number} placeholder="" />
+                            <input onChange={(e) => { handleChange(e) }} className="input_div" type="text" placeholder="" />
                         </div>
                         <div style={{ textAlign: "center" }}>
-                            <Link to={'/Otp'}><button className="button">Continue</button></Link>
+                            <button onClick={handleSubmit} className={check ? "button goAhead" : "button wait"}>Continue</button>
 
                             <div style={{ marginTop: "60px", lineHeight: "4px" }}>
                                 <p>Powered by</p>

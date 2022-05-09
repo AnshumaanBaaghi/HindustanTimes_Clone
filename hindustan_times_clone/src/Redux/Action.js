@@ -56,3 +56,52 @@ export const LeftSideBarAction = (payload) => ({
     type: "LEFTSIDEBAR",
     payload: payload
 })
+export const EditProfileAction = (payload) => ({
+    type: "EDITPROFILE",
+    payload: payload
+})
+
+export const checkUpper = (el) => {
+    let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    for (let i = 0; i < el.length; i++) {
+        for (let j = 0; j < str.length; j++) {
+            if (el[i] === str[j]) {
+                return true
+            }
+        }
+    }
+    return false
+}
+export const checkLower = (el) => {
+    let str = "abcdefghijklmnopqrstuvwxyz";
+    for (let i = 0; i < el.length; i++) {
+        for (let j = 0; j < str.length; j++) {
+            if (el[i] === str[j]) {
+                return true
+            }
+        }
+    }
+    return false
+}
+export const checkSpChar = (el) => {
+    let str = "!@#$%^&*";
+    for (let i = 0; i < el.length; i++) {
+        for (let j = 0; j < str.length; j++) {
+            if (el[i] === str[j]) {
+                return true
+            }
+        }
+    }
+    return false
+}
+export const checkNum = (el) => {
+    let str = "1234567890";
+    for (let i = 0; i < el.length; i++) {
+        for (let j = 0; j < str.length; j++) {
+            if (el[i] === str[j]) {
+                return true
+            }
+        }
+    }
+    return false
+}

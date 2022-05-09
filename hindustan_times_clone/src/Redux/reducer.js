@@ -4,7 +4,8 @@ const initialState = {
     editProfile: false,
     loginStatus: false,
     ProfileSideBar: false,
-    LeftSideBar: false
+    LeftSideBar: false,
+    EditProfile: false,
 }
 
 export const reducer = (state = initialState, { type, payload }) => {
@@ -17,6 +18,8 @@ export const reducer = (state = initialState, { type, payload }) => {
             return { ...state, ProfileSideBar: payload }
         case "LEFTSIDEBAR":
             return { ...state, LeftSideBar: payload }
+        case "EDITPROFILE":
+            return { ...state, EditProfile: payload }
         default:
             return state
     }

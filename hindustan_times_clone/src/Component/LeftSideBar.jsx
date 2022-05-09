@@ -24,14 +24,26 @@ export const LeftSideBar = ({ flag }) => {
                 <div className="StaticDataSideBar">Home</div>
                 <div className={"StaticDataSideBar"}>India News</div>
                 <LeftSideBarComponent Name={"Entertainment"} Options={["Bollywood", "Tv", "Web Series", "Music", "Hollywood", "Tamil Cinema"]} />
+                <LeftSideBarComponent Name={"IPL 2022"} Options={["Overviews", "News", "Points Table", "Schedule", "Team", "Results", "Orange Cup", "Purple Cup", "IPL History"]} />
+                <LeftSideBarComponent Name={"Elections"} Options={["Uttar Pardesh", "Punjab", "Uttarkhand", "Goa", "Manipur"]} />
+                <LeftSideBarComponent Name={"Cities"} Options={["Delhi", "Mumbai", "Bangalur", "Gurugram", "Noida", "Hyderabad", "Chennai", "Kolkata", "Bhopal", "Chandigarh", "Dehradun", "Indore", "Lucknow", "Patna", "Pune", "Ranchi", "Other Cities"]} />
+
                 <div className={"StaticDataSideBar"}>World News</div>
+                <LeftSideBarComponent Name={"Life Style"} Options={["Fashion", "Health", "Relationship", "Art And Culture", "Travel", "Recipes", "Festivals", "Brunch"]} />
                 <div className={"StaticDataSideBar"}>Trending</div>
+                <LeftSideBarComponent Name={"Education"} Options={["Exam Result", "Competitive Exam", "Board Exam", "Admission News", "Employment News"]} />
+                <LeftSideBarComponent Name={"Astrology"} Options={["Horoscope", "Festive Calender", "Compatibility Calculation"]} />
                 <div className={"StaticDataSideBar"}>Opinion</div>
                 <div className={"StaticDataSideBar"}>Analysis</div>
+                <LeftSideBarComponent Name={"Videos"} Options={["Explainer Videos", "On The Records", "HT Weekend", "Aur Batao", "Vikram Chandra Daily Wrap"]} />
+                <LeftSideBarComponent Name={"Photos"} Options={["Entertainment Photos", "Lifestytles Photos", "News Photos"]} />
+                <LeftSideBarComponent Name={"Sports"} Options={["Euro 2020", "Hockey", "Football"]} />
                 <div className={"StaticDataSideBar"}>Web Stories</div>
                 <div className={"StaticDataSideBar"}>Business</div>
                 <div className={"StaticDataSideBar"}>Science</div>
+                <LeftSideBarComponent Name={"HT insight"} Options={["Public Health", "Economic Policy", "International Affairs", "Climate Change", "Gender Equality"]} />
                 <div className={"StaticDataSideBar"}>CricHT Fantacy</div>
+                <LeftSideBarComponent Name={"Games"} Options={["Daily Sudoku", "Daily Crossword", "Daily Word Jumble"]} />
                 <div className={"StaticDataSideBar"}>Quiz</div>
                 <div className={"StaticDataSideBar"}>Podcasts</div>
                 <div className={"StaticDataSideBar"}>Auto</div>
