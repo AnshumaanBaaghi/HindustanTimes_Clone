@@ -25,7 +25,7 @@ export const MainRouter = () => {
   return (
     <>
       <BelowNavBar id='BelowNavBar'>
-        {/* <LeftSideNewsContainer /> */}
+        <LeftSideNewsContainer />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/History' element={<History />} />
@@ -41,11 +41,9 @@ export const MainRouter = () => {
           <Route path='/ForYou' element={<ForYou />} />
           <Route path='/Search' element={<Search />} />
           <Route path='/SingleNews' element={<SingleNews />} />
-          {/* <Route path='/Login' element={<Login/>}/> */}
           <Route path='/Saved' element={<SavedNews />} />
-
         </Routes>
-        {/* <RightSideNewsContainer /> */}
+        <RightSideNewsContainer />
       </BelowNavBar>
     </>
   )

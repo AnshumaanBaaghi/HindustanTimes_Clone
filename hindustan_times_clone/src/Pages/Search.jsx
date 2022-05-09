@@ -6,7 +6,7 @@ import '../Component/common.css'
 import { FindMonth } from '../Redux/Action'
 export const Search = () => {
     const [data, setData] = useState([]);
-    const [val,setVal] = useState("")
+    const [val, setVal] = useState("")
     const CallData = async () => {
         let promise = await fetch(`https://newsapi.org/v2/everything?q=${val}&apiKey=81cd23c204f349be81345237249f7737`);
 
@@ -14,7 +14,7 @@ export const Search = () => {
         console.log('d:', d)
         setData([...d.articles])
     }
-    
+
     return (
         <MainNewsContainerStyle>
             <div style={{ display: "flex", alignItems: "center", marginBottom: "20px" }}>
@@ -33,7 +33,7 @@ export const Search = () => {
                 </div>
             </div>
             <div id="Search">
-                <input onChange={(e)=>{setVal(e.target.value)}} type="text" placeholder='Type here to search news' />
+                <input onChange={(e) => { setVal(e.target.value) }} type="text" placeholder='Type here to search news' />
                 <i onClick={CallData} id='searchIcon' class="fas fa-search"></i>
             </div>
             {data.map((el, i) => {
@@ -55,15 +55,15 @@ export const Search = () => {
                             }
                         }
                         let title = ""
-            let flag = true;
-        for(let i=0;i<el.title.length;i++){
-            if(el.title[i]==="-"){
-                flag = false
-            }
-            if(flag){
-                title+=el.title[i]
-            }
-        }
+                        let flag = true;
+                        for (let i = 0; i < el.title.length; i++) {
+                            if (el.title[i] === "-") {
+                                flag = false
+                            }
+                            if (flag) {
+                                title += el.title[i]
+                            }
+                        }
                         return (
                             <MainNewsDiv className='MainNewsDiv'>
                                 <div>
