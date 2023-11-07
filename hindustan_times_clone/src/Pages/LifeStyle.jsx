@@ -6,10 +6,11 @@ import '../Component/common.css'
 import { FindMonth } from '../Redux/Action'
 import { OtherNewsComponents } from './OtherNewsComponents'
 import { FirstNewsComponent } from './FirstNewsComponent'
+import { BASE_URL } from '../constants'
 export const LifeStyle = () => {
     const [data, setData] = useState([])
     const CallData = async () => {
-        let promise = await fetch("https://newsapi.org/v2/everything?q=lifestyle&apiKey=10ebb6b783bd45c78d28d7fdb43628ad");
+        let promise = await fetch(`${BASE_URL}&q=lifestyle`);
 
         let d = await promise.json();
         setData(d.articles)
@@ -38,7 +39,7 @@ export const LifeStyle = () => {
                 </div>
             </div>
             {data.map((el, i) => {
-                if (el.description && el.urlToImage) {
+                if (el.description && el.image) {
                     if (el.description[0] !== "<") {
                         let year = ""
                         let month = "";

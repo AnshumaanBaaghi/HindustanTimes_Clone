@@ -6,12 +6,13 @@ import '../Component/common.css'
 import { FindMonth } from '../Redux/Action'
 import { FirstNewsComponent } from './FirstNewsComponent'
 import { OtherNewsComponents } from './OtherNewsComponents'
+import { BASE_URL } from '../constants'
 export const Home = () => {
-    const [data, setData] = useState([])
+    const [data, setData] = useState([]);
     const CallData = async () => {
-        let promise = await fetch("https://newsapi.org/v2/top-headlines?country=in&apiKey=81cd23c204f349be81345237249f7737");
+        let promise = await fetch(`${BASE_URL}&q=google`);
         let d = await promise.json();
-        setData(d.articles)
+        setData(d.articles);
     }
     useEffect(() => {
         CallData()
@@ -35,7 +36,7 @@ export const Home = () => {
                 </div>
             </div>
             {data.map((el, i) => {
-                if (el.description && el.urlToImage) {
+                if (el.description && el.image) {
                     if (el.description[0] !== "<") {
                         let year = ""
                         let month = "";

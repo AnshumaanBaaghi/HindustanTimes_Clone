@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react'
 import { LeftSideNewsContainerStyle, MainNewsDes, MainNewsDiv, MainNewsH2, MainNewsImg, MainNewsPubDate, MainNewsTimeDiv } from '../Component/styles'
 import '../Component/common.css'
 import { FindMonth } from '../Redux/Action'
+import { BASE_URL, BASE_URL2 } from '../constants'
 export const LeftSideNewsContainer = () => {
     const [data, setData] = useState([])
     const [data2, setData2] = useState([])
     const CallData = async () => {
-        let promise = await fetch("https://newsapi.org/v2/top-headlines?country=in&page=2&apiKey=b66b09c463ac4dbe9df0657afa6c8a7b");
+        let promise = await fetch(`${BASE_URL}&q=general`);
         let d = await promise.json();
         setData(d.articles)
-        let promise2 = await fetch("https://newsapi.org/v2/everything?q=bollywood&apiKey=b66b09c463ac4dbe9df0657afa6c8a7b");
+        let promise2 = await fetch(`${BASE_URL2}&q=bollywood`);
         let d2 = await promise2.json();
-        // console.log('d2:', d2.articles)
         setData2(d2.articles)
     }
     useEffect(() => {
@@ -40,7 +40,6 @@ export const LeftSideNewsContainer = () => {
                 {data.map((el, i) => {
                     if (count > 4) {
                         //   break;
-                        console.log("1");
                         return;
                     }
                     if (el.description) {
@@ -140,7 +139,6 @@ export const LeftSideNewsContainer = () => {
                 </div>
                 {data2.map((el, i) => {
                     if (count2 > 4) {
-                        console.log("1");
                         return;
                     }
                     if (el.description) {

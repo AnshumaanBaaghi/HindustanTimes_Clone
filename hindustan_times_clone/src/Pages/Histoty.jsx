@@ -3,10 +3,11 @@ import { MainNewsDes, MainNewsDiv, MainNewsH2, MainNewsImg, MainNewsPubDate, Mai
 import '../Component/common.css'
 import { Link } from 'react-router-dom'
 import { OtherNewsComponents } from './OtherNewsComponents'
+import { JSON_DB_BASE_URL } from '../constants'
 export const History = () => {
     const [saved, setSaved] = useState(false)
     const handleSaved = async (el) => {
-        let promise = await fetch("http://localhost:8080/SavedData", {
+        let promise = await fetch(`${JSON_DB_BASE_URL}/SavedData`, {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({
@@ -14,14 +15,14 @@ export const History = () => {
                 Heading: el.heading,
                 description: el.description,
                 title: el.title,
-                urlToImage: el.urlToImage,
+                image: el.image,
                 publishedAt: el.publishedAt,
             })
         })
         setSaved(true)
     }
     const handleRemove = async (el) => {
-        let promise = await fetch(`http://localhost:8080/SavedData/${el.id}`, {
+        let promise = await fetch(`${JSON_DB_BASE_URL}/SavedData/${el.id}`, {
             method: "DELETE",
         })
         setSaved(false)
@@ -44,7 +45,7 @@ export const History = () => {
     }
     const [data, setData] = useState([])
     const CallData = async () => {
-        const history = await fetch("http://localhost:8080/History")
+        const history = await fetch(`${JSON_DB_BASE_URL}/History`)
         const d = await history.json()
         setData(d)
     }
@@ -74,7 +75,7 @@ export const History = () => {
                     //         </MainNewsTimeDiv>
                     //     </div>
                     //     <div>
-                    //         <MainNewsImg onClick={handleSingleNews} className='pointer' src={el.el.urlToImage} alt="" />
+                    //         <MainNewsImg onClick={handleSingleNews} className='pointer' src={el.el.image} alt="" />
                     //     </div>
                     // </MainNewsDiv>
                 )

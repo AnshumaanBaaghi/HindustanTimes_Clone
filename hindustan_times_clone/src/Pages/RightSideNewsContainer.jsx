@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { LeftSideNewsContainerStyle, MainNewsDes, MainNewsDiv, MainNewsH2, MainNewsImg, MainNewsPubDate, MainNewsTimeDiv } from '../Component/styles'
 import '../Component/common.css'
 import { RightSideNewsContainerStyle } from '../Component/styles'
+import { BASE_URL, BASE_URL2 } from '../constants'
 export const RightSideNewsContainer = () => {
   const [data, setData] = useState([])
   const [data2, setData2] = useState([])
   const CallData = async () => {
-    let promise = await fetch("https://newsapi.org/v2/everything?q=trending&apiKey=cf207e12c5944860844ef44fab09b3df");
+    let promise = await fetch(`${BASE_URL}&q=trending`);
     let d = await promise.json();
     setData(d.articles)
-    let promise2 = await fetch("https://newsapi.org/v2/everything?q=viral&apiKey=cf207e12c5944860844ef44fab09b3df");
+    let promise2 = await fetch(`${BASE_URL2}&q=viral`);
     let d2 = await promise2.json();
     setData2(d2.articles)
   }
@@ -38,7 +39,6 @@ export const RightSideNewsContainer = () => {
         </div>
         {data.map((el, i) => {
           if (count > 4) {
-            console.log("1");
             return;
           }
           if (el.description) {
@@ -75,7 +75,7 @@ export const RightSideNewsContainer = () => {
                   <div>
                     <div className="LeftNewsDes pointer">{title}</div>
                   </div>
-                  <img src={el.urlToImage} alt="" />
+                  <img src={el.image} alt="" />
                 </div>
               )
             }
@@ -101,7 +101,6 @@ export const RightSideNewsContainer = () => {
         </div>
         {data2.map((el, i) => {
           if (count2 > 4) {
-            console.log("1");
             return;
           }
           if (el.description) {
@@ -138,7 +137,7 @@ export const RightSideNewsContainer = () => {
                   <div>
                     <div className="LeftNewsDes pointer">{title}</div>
                   </div>
-                  <img src={el.urlToImage} alt="" />
+                  <img src={el.image} alt="" />
                 </div>
               )
             }

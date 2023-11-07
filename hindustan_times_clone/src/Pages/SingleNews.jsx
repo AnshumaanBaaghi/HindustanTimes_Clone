@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import '../Component/common.css'
+import { JSON_DB_BASE_URL } from '../constants'
 export const SingleNews = () => {
     const [saved, setSaved] = useState(false)
     let a = JSON.parse(localStorage.getItem("SingleNews"))
     const handleSaved = async (id, heading, title, el) => {
-        let promise = await fetch("http://localhost:8080/SavedData", {
+        let promise = await fetch(`${JSON_DB_BASE_URL}/SavedData`, {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({
@@ -13,14 +14,14 @@ export const SingleNews = () => {
                 Heading: heading,
                 description: el.description,
                 title: title,
-                urlToImage: el.urlToImage,
+                image: el.image,
                 publishedAt: el.publishedAt,
             })
         })
         setSaved(true)
     }
     const handleRemove = async (id) => {
-        let promise = await fetch(`http://localhost:8080/SavedData/${id}`, {
+        let promise = await fetch(`${JSON_DB_BASE_URL}/SavedData/${id}`, {
             method: "DELETE",
         })
         setSaved(false)
@@ -33,7 +34,7 @@ export const SingleNews = () => {
         <div className='MainNewsFirstDiv'>
             <div className='pointer MainNewsFirstH2'>{a.heading}</div>
             <h2 className='pointer MainNewsFirstDes'>{a.title}</h2>
-            <img className='pointer MainNewsFirstImg' src={a.el.urlToImage} alt="" />
+            <img className='pointer MainNewsFirstImg' src={a.el.image} alt="" />
             <div className='MainNewsTimeFirstDiv'>
                 <div className='MainNewsFirstPubDate'>Updated on {a.month} {a.date}, {a.year} {a.hour}:{a.min} {a.zone} IST</div>
                 <div>

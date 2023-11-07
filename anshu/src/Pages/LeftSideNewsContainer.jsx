@@ -11,7 +11,6 @@ export const LeftSideNewsContainer = () => {
         setData(d.articles)
         let promise2 = await fetch("https://newsapi.org/v2/everything?q=bollywood&apiKey=10ebb6b783bd45c78d28d7fdb43628ad");
         let d2 = await promise2.json();
-        // console.log('d2:', d2.articles)
         setData2(d2.articles)
     }
     useEffect(()=>{
@@ -40,7 +39,6 @@ export const LeftSideNewsContainer = () => {
       {data.map((el,i)=>{
           if(count>4){
             //   break;
-            console.log("1");
             return;
           }
           if(el.description){
@@ -130,7 +128,6 @@ export const LeftSideNewsContainer = () => {
         </div>
       {data2.map((el,i)=>{
           if(count2>4){
-            console.log("1");
             return;
           }
           if(el.description){

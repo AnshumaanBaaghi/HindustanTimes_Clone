@@ -6,10 +6,11 @@ import '../Component/common.css'
 import { FindMonth } from '../Redux/Action'
 import { OtherNewsComponents } from './OtherNewsComponents'
 import { FirstNewsComponent } from './FirstNewsComponent'
+import { BASE_URL } from '../constants'
 export const Latest = () => {
     const [data, setData] = useState([])
     const CallData = async () => {
-        let promise = await fetch("https://newsapi.org/v2/everything?q=latest&apiKey=81cd23c204f349be81345237249f7737");
+        let promise = await fetch(`${BASE_URL}&q=latest`);
 
         let d = await promise.json();
         setData(d.articles)
@@ -38,7 +39,7 @@ export const Latest = () => {
                 </div>
             </div>
             {data.map((el, i) => {
-                if (el.description && el.urlToImage) {
+                if (el.description && el.image) {
                     if (el.description[0] !== "<") {
                         let year = ""
                         let month = "";

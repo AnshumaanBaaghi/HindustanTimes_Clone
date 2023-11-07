@@ -35,7 +35,7 @@ export const Editorial = () => {
             </div>
         </div>
         {data.map((el,i)=>{
-            if(el.description && el.urlToImage){
+            if(el.description && el.image){
                 if(el.description[0]!=="<"){
                     let year = ""
             let month ="";
@@ -94,7 +94,7 @@ export const Editorial = () => {
                     <div className='MainNewsFirstDiv'>
                             <div className='pointer MainNewsFirstH2'>EDITORIAL</div>
                             <h2 className='pointer MainNewsFirstDes'>{des}</h2>
-                            <img className='pointer MainNewsFirstImg' src={el.urlToImage} alt="" />
+                            <img className='pointer MainNewsFirstImg' src={el.image} alt="" />
                             <div className='MainNewsTimeFirstDiv'>
                                 <div className='MainNewsFirstPubDate'>Updated on {month} {date}, {year} {hour}:{min} {zone} IST</div>
                                 <div>
@@ -120,7 +120,7 @@ export const Editorial = () => {
                             </MainNewsTimeDiv>
                         </div>
                         <div>
-                            <MainNewsImg className='pointer' src={el.urlToImage} alt="" />
+                            <MainNewsImg className='pointer' src={el.image} alt="" />
                         </div>
                     </MainNewsDiv>
                 )

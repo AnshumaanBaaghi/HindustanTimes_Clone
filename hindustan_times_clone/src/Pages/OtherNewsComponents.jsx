@@ -3,10 +3,11 @@ import '../Component/common.css'
 import { MainNewsDes, MainNewsDiv, MainNewsH2, MainNewsImg, MainNewsPubDate, MainNewsTimeDiv } from '../Component/styles'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+import { JSON_DB_BASE_URL } from '../constants'
 export const OtherNewsComponents = ({ el, title, month, date, year, hour, min, zone, heading, id }) => {
     const [saved, setSaved] = useState(false)
     const handleSaved = async () => {
-        let promise = await fetch("http://localhost:8080/SavedData", {
+        let promise = await fetch(`${JSON_DB_BASE_URL}/SavedData`, {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({
@@ -14,14 +15,14 @@ export const OtherNewsComponents = ({ el, title, month, date, year, hour, min, z
                 Heading: heading,
                 description: el.description,
                 title: el.title,
-                urlToImage: el.urlToImage,
+                image: el.image,
                 publishedAt: el.publishedAt,
             })
         })
         setSaved(true)
     }
     const handleRemove = async () => {
-        let promise = await fetch(`http://localhost:8080/SavedData/${id}`, {
+        let promise = await fetch(`${JSON_DB_BASE_URL}/SavedData/${id}`, {
             method: "DELETE",
         })
         setSaved(false)
@@ -42,7 +43,7 @@ export const OtherNewsComponents = ({ el, title, month, date, year, hour, min, z
             id: id
         }
         localStorage.setItem("SingleNews", JSON.stringify(obj))
-        let promise = await fetch("http://localhost:8080/History", {
+        let promise = await fetch(`${JSON_DB_BASE_URL}/History`, {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(obj)
@@ -65,7 +66,7 @@ export const OtherNewsComponents = ({ el, title, month, date, year, hour, min, z
             </div>
             <div>
                 <Link to="/SingleNews">
-                    <MainNewsImg onClick={handleSingleNews} className='pointer' src={el.urlToImage} alt="" />
+                    <MainNewsImg onClick={handleSingleNews} className='pointer' src={el.image} alt="" />
                 </Link>
             </div>
         </MainNewsDiv>

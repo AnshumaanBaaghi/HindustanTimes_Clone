@@ -2,10 +2,12 @@ import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../Component/common.css'
+import { JSON_DB_BASE_URL } from '../constants'
 export const FirstNewsComponent = ({el,title,month,date,year,hour,min,zone,heading,id}) => {
+    console.log('el:', el)
     const [saved,setSaved] = useState(false)
     const handleSaved=async()=>{
-        let promise = await fetch("http://localhost:8080/SavedData",{
+        let promise = await fetch(`${JSON_DB_BASE_URL}/SavedData`,{
             method:"POST",
             headers:{"content-type":"application/json"},
             body: JSON.stringify({
@@ -13,14 +15,14 @@ export const FirstNewsComponent = ({el,title,month,date,year,hour,min,zone,headi
                 Heading:heading,
                 description:el.description,
                 title:el.title,
-                urlToImage:el.urlToImage,
+                image:el.image,
                 publishedAt:el.publishedAt,
             })
         })
         setSaved(true)
     }
     const handleRemove=async()=>{
-        let promise = await fetch(`http://localhost:8080/SavedData/${id}`,{
+        let promise = await fetch(`${JSON_DB_BASE_URL}/SavedData/${id}`,{
             method:"DELETE",
         })
         setSaved(false)
@@ -45,7 +47,7 @@ export const FirstNewsComponent = ({el,title,month,date,year,hour,min,zone,headi
     <div className='pointer MainNewsFirstH2'>{heading}</div>
     <Link onClick={handleSingleNews}  to="/SingleNews">
         <h2 className='pointer MainNewsFirstDes'>{title}</h2>
-        <img className='pointer MainNewsFirstImg' src={el.urlToImage} alt="" />
+        <img className='pointer MainNewsFirstImg' src={el.image} alt="image" />
     </Link>
     <div className='MainNewsTimeFirstDiv'>
         <div className='MainNewsFirstPubDate'>Updated on {month} {date}, {year} {hour}:{min} {zone} IST</div>

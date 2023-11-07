@@ -4,10 +4,11 @@ import '../fontawesome-free-6.0.0-web/css/all.css'
 import { MainNewsContainerStyle } from '../Component/styles'
 import '../Component/common.css'
 import { FindMonth } from '../Redux/Action'
+import { JSON_DB_BASE_URL } from '../constants'
 export const SavedNews = () => {
     const [data,setData]  = useState([])
     const CallData = async()=>{
-        let promise = await fetch("http://localhost:8080/SavedData");
+        let promise = await fetch(`${JSON_DB_BASE_URL}/SavedData`);
         let d = await promise.json();
         setData(d)
     }
@@ -15,10 +16,10 @@ export const SavedNews = () => {
         CallData()
     },[])
     const handleRemove=async(id)=>{
-        let promise2 = await fetch(`http://localhost:8080/SavedData/${id}`,{
+        let promise2 = await fetch(`${JSON_DB_BASE_URL}/SavedData/${id}`,{
             method:"DELETE",
         })
-        let promise = await fetch("http://localhost:8080/SavedData");
+        let promise = await fetch(`${JSON_DB_BASE_URL}/SavedData`);
         let d = await promise.json();
         setData([...d])
     }
@@ -42,7 +43,7 @@ export const SavedNews = () => {
             </div>
         </div>
         {data.map((el,i)=>{
-            if(el.description && el.urlToImage){
+            if(el.description && el.image){
                 if(el.description[0]!=="<"){
                     let year = ""
             let month ="";
@@ -120,7 +121,7 @@ export const SavedNews = () => {
                             </MainNewsTimeDiv>
                         </div>
                         <div>
-                            <MainNewsImg className='pointer' src={el.urlToImage} alt="" />
+                            <MainNewsImg className='pointer' src={el.image} alt="" />
                         </div>
                     </MainNewsDiv>
                 )

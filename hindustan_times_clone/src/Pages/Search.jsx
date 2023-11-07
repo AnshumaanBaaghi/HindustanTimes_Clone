@@ -4,14 +4,14 @@ import '../fontawesome-free-6.0.0-web/css/all.css'
 import { MainNewsContainerStyle } from '../Component/styles'
 import '../Component/common.css'
 import { FindMonth } from '../Redux/Action'
+import { BASE_URL } from '../constants'
 export const Search = () => {
     const [data, setData] = useState([]);
     const [val, setVal] = useState("")
     const CallData = async () => {
-        let promise = await fetch(`https://newsapi.org/v2/everything?q=${val}&apiKey=81cd23c204f349be81345237249f7737`);
+        let promise = await fetch(`${BASE_URL}&q=${val}`);
 
         let d = await promise.json();
-        console.log('d:', d)
         setData([...d.articles])
     }
 
@@ -37,7 +37,7 @@ export const Search = () => {
                 <i onClick={CallData} id='searchIcon' class="fas fa-search"></i>
             </div>
             {data.map((el, i) => {
-                if (el.description && el.urlToImage) {
+                if (el.description && el.image) {
                     if (el.description[0] !== "<") {
                         let des = ""
                         if (el.description) {
@@ -71,7 +71,7 @@ export const Search = () => {
                                     <MainNewsDes className='pointer'>{title}</MainNewsDes>
                                 </div>
                                 <div>
-                                    <MainNewsImg className='pointer' src={el.urlToImage} alt="" />
+                                    <MainNewsImg className='pointer' src={el.image} alt="" />
                                 </div>
                             </MainNewsDiv>
                         )

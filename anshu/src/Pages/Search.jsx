@@ -12,11 +12,10 @@ export const Search = () => {
         let promise = await fetch(`https://newsapi.org/v2/everything?q=${val}&apiKey=81cd23c204f349be81345237249f7737`);
 
         let d = await promise.json();
-        console.log('d:', d)
         setData([...d.articles])
     }
     const handleSaved=async(el)=>{
-        let promise = await fetch("http://localhost:8080/SavedData",{
+        let promise = await fetch(`${JSON_DB_BASE_URL}/SavedData`,{
             method:"POST",
             headers:{"content-type":"application/json"},
             body: JSON.stringify({
@@ -24,7 +23,7 @@ export const Search = () => {
                 Heading:"TOP NEWS",
                 description:el.description,
                 title:el.title,
-                urlToImage:el.urlToImage,
+                image:el.image,
                 publishedAt:el.publishedAt,
             })
         })
@@ -51,7 +50,7 @@ export const Search = () => {
                 <i onClick={CallData} id='searchIcon' class="fas fa-search"></i>
             </div>
             {data.map((el, i) => {
-                if (el.description && el.urlToImage) {
+                if (el.description && el.image) {
                     if (el.description[0] !== "<") {
                         let des = ""
                         if (el.description) {
@@ -85,7 +84,7 @@ export const Search = () => {
                                     <MainNewsDes className='pointer'>{title}</MainNewsDes>
                                 </div>
                                 <div>
-                                    <MainNewsImg className='pointer' src={el.urlToImage} alt="" />
+                                    <MainNewsImg className='pointer' src={el.image} alt="" />
                                 </div>
                             </MainNewsDiv>
                         )

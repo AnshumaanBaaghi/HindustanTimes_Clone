@@ -38,7 +38,6 @@ export const RightSideNewsContainer = () => {
         </div>
       {data.map((el,i)=>{
           if(count>4){
-            console.log("1");
             return;
           }
           if(el.description){
@@ -65,7 +64,7 @@ export const RightSideNewsContainer = () => {
                       <div>
                           <div className="LeftNewsDes pointer">{des}</div>
                       </div>
-                      <img src={el.urlToImage} alt="" />
+                      <img src={el.image} alt="" />
                   </div>
               )
             }
@@ -91,7 +90,6 @@ export const RightSideNewsContainer = () => {
         </div>
       {data2.map((el,i)=>{
           if(count2>4){
-            console.log("1");
             return;
           }
           if(el.description){
@@ -118,7 +116,7 @@ export const RightSideNewsContainer = () => {
                         <div>
                             <div className="LeftNewsDes pointer">{des}</div>
                         </div>
-                        <img src={el.urlToImage} alt="" />
+                        <img src={el.image} alt="" />
                     </div>
                 )
               }

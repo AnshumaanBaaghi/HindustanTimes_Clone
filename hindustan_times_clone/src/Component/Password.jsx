@@ -66,7 +66,6 @@ export const Password = () => {
             setCont(false)
         }
         setPercen(count)
-        console.log(percen);
     }
     const navigate = useNavigate()
     const handleSubmit = () => {
